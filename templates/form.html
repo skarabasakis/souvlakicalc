@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>Souvlaki Cost Calculator</title>
+  </head>
+
+  <body>
+    <form method="POST" action="/calculate">
+      <div>
+        <label for="name">Όνομα</label>
+        <input id="name" type="text" name="name" placeholder="Το όνομα σου">
+      </div>
+      <div>
+        <label for="quantity">Ποσότητα</label>
+        <input id="quantity" type="number" name="quantity" value="1" min="1">
+      </div>
+      <div>
+        <label>Πίτα</label>
+        <label><input name="pita" type="radio" value="paradosiaki"> Παραδοσιακή (0.50&euro;)</label>
+        <label><input name="pita" type="radio" value="araviki"> Αραβική (1.20&euro;)</label>
+      </div>
+      <div>
+        <label for="kreatiko">Κρεατικό</label>
+        <select name="meat" id="kreatiko">
+          <option value="pork_gyro">Γύρος Χοιρινό (1.70)</option>
+          <option value="chicken_gyro">Γύρος Κοτόπουλο (1.70)</option>
+          <option value="pork">Καλαμάκι Χοιρινό (1.90)</option>
+          <option value="chicken">Καλαμάκι Κοτόπουλο (1.90)</option>
+          <option value="veggie">Οικολογικό (1.20)</option>
+        </select>
+      </div>
+      <div>
+        <label>Υλικά</label>
+        <label><input name="extras" type="checkbox" value="fries" checked> Πατάτες (0.30)</label>
+        <label><input name="extras" type="checkbox" value="bacon"> Μπέικον (0.50)</label>
+      </div>
+      
+      <button type="submit">Υπολογισμός Κόστους</button>
+      <button type="reset">Καθαρισμός</button>
+    </form>
+  </body>
+</html>
