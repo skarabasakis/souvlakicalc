@@ -1,0 +1,126 @@
+/* FONT */
+@import url("font/stylesheet.css");
+
+body, label, select, input, button {font: 501 1.1em "GFS Neohellenic", sans-serif;}
+
+
+/* FORM */
+
+form {
+    display: table;
+    text-align: center;
+    padding: 10%;
+    background-image: linear-gradient(137deg, #c9b5eb 2.38%, #73b8f0 2.38%, #73b8f0 50%, #c9b5eb 50%, #c9b5eb 52.38%, #73b8f0 52.38%, #73b8f0 100%);
+    background-size: 21.00px 19.58px;
+    border-radius: 25%;
+    margin: auto;
+}
+
+table {
+    background-color: transparent;
+    border-collapse: collapse;
+    border-width: 0px;
+    border-style: solid;
+  }
+  
+  table td, table th {
+    border-width: 0px;
+    border-style: solid;
+    padding: 5px 15px;
+  }
+
+
+  /* Text Input Field Border */
+
+input, select {
+      
+    border:solid 2px #000;
+    
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+
+
+}
+
+
+/* radio buttons and checkboxes */
+
+input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #fff;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid #000;
+}
+
+input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #000;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid #000;
+
+}
+
+
+
+/* input[type=checkbox] {
+	-moz-appearance:none;
+	-webkit-appearance:none;
+	-o-appearance:none;
+	outline: none;
+	content: none;	
+} */
+
+input[type=checkbox]:before {
+    content: "✓";
+    font-size: 15px;
+    text-align: center;
+    padding: 0 0 2px 0;
+    color: transparent !important;
+    background: #fff;
+    display: block;
+    width: 15px;
+    height: 15px;
+    border: 2px solid black;
+    margin-right: 7px;
+}
+
+input[type=checkbox]:checked:before {
+
+	color: black !important;
+}
+
+
+
+/* HEADER */
+
+h1 {
+    padding: 10% 20%;
+    font-size: 3rem;
+}
+
+
+
+/* BUTTONS */
+
+button {
+    margin: 7% 5% 0;
+    border: 1px solid #000;
+    border-radius: 10%;
+    padding: 3px 7px;
+    background-color: #0088f8;
+    color: #fafafa;
+    cursor: pointer;
+}
