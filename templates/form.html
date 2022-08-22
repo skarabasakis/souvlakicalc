@@ -5,43 +5,49 @@
   </head>
 
   <body>
-
+    <style>
+      .errors {
+        color: red;
+        border: 1px solid red;
+      }
+    </style>
     <form method="POST" action="/calculate">
-      <h1>Souvlaki Cost Calculator</h1>
-    <table>
-      <tbody>
-        <tr>
-          <td><label for="name">Όνομα</label></td>
-          <td><input id="name" type="text" name="name" placeholder="Το όνομα σου"></td>
-        </tr>
-        <tr>
-          <td><label for="quantity">Ποσότητα</label></td>
-          <td><input id="quantity" type="number" name="quantity" value="1" min="1"></td>
-        </tr>
-        <tr>
-          <td><label>Πίτα</label></td>
-          <td><label><input name="pita" type="radio" value="paradosiaki"> Παραδοσιακή (0.50&euro;)</label>
-            <label><input name="pita" type="radio" value="araviki"> Αραβική (1.20&euro;)</label></td>
-        </tr>
-        <tr>
-          <td><label for="kreatiko">Κρεατικό</label></td>
-          <td><select name="meat" id="kreatiko">
-            <option value="pork_gyro">Γύρος Χοιρινό (1.70&euro;)</option>
-            <option value="chicken_gyro">Γύρος Κοτόπουλο (1.70&euro;)</option>
-            <option value="pork">Καλαμάκι Χοιρινό (1.90&euro;)</option>
-            <option value="chicken">Καλαμάκι Κοτόπουλο (1.90&euro;)</option>
-            <option value="veggie">Οικολογικό (1.20&euro;)</option>
-          </select></td>
-        </tr>
-        <tr>
-          <td><label>Υλικά</label></td>
-          <td><label><input name="extras" type="checkbox" value="fries" checked> Πατάτες (0.30&euro;)</label>
-            <label><input name="extras" type="checkbox" value="bacon"> Μπέικον (0.50&euro;)</label></td>
-        </tr>
-      </tbody>
-    </table>
+      {% if errors %}
+      <ul class="errors">
+        {% for error in errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      <div>
+        <label for="name">Όνομα</label>
+        <input id="name" type="text" name="name" placeholder="Το όνομα σου" required value="{{ name }}">
+      </div>
+      <div>
+        <label for="quantity">Ποσότητα</label>
+        <input id="quantity" type="number" name="quantity" value="{{ quantity }}" min="1">
+      </div>
+      <div>
+        <label>Πίτα</label>
+        <label><input name="pita" type="radio" value="paradosiaki" {{ 'checked' if pita == 'paradosiaki' }}> Παραδοσιακή (0.50&euro;)</label>
+        <label><input name="pita" type="radio" value="araviki" {{ 'checked' if pita == 'araviki' }}> Αραβική (1.20&euro;)</label>
+      </div>
+      <div>
+        <label for="kreatiko">Κρεατικό</label>
+        <select name="meat" id="kreatiko">
+          <option value="pork_gyro" {{ 'selected' if meat == 'pork_gyro' }}>Γύρος Χοιρινό (1.70)</option>
+          <option value="chicken_gyro" {{ 'selected' if meat == 'chicken_gyro' }}>Γύρος Κοτόπουλο (1.70)</option>
+          <option value="pork" {{ 'selected' if meat == 'pork' }}>Καλαμάκι Χοιρινό (1.90)</option>
+          <option value="chicken" {{ 'selected' if meat == 'chicken' }}>Καλαμάκι Κοτόπουλο (1.90)</option>
+          <option value="veggie" {{ 'selected' if meat == 'veggie' }}>Οικολογικό (1.20)</option>
+        </select>
+      </div>
+      <div>
+        <label>Υλικά</label>
+        <label><input name="extras" type="checkbox" value="fries" {{ 'checked' if 'fries' in extras }}> Πατάτες (0.30)</label>
+        <label><input name="extras" type="checkbox" value="bacon" {{ 'checked' if 'bacon' in extras }}> Μπέικον (0.50)</label>
+      </div>
 
-      
       <button type="submit">Υπολογισμός Κόστους</button>
       <button type="reset">Καθαρισμός</button>
     </form>

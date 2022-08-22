@@ -1,0 +1,20 @@
+<h1>Γεια σου, {{ name }}</h1>
+
+<p>{{ quantity }} {{ 'σουβλάκια' if quantity > 1 else 'σουβλάκι' }} με</p>
+<ul>
+  {% for label in material_labels %}
+  <li>{{ label }}</li>
+  {% endfor %}
+</ul>
+<p>
+  {% if quantity == 1 %}
+    κοστίζει
+  {% else %}
+    κοστίζουν
+  {% endif %}
+  {{ cost }} &euro;
+</p>
+
+<hr>
+
+<a href="/">Επιστροφή</a>
